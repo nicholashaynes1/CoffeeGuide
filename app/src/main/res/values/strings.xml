@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CoffeeApp</string>
+    <string name="Search">Search</string>
+    <color name = "blue">#5779af</color>
+    <color name="deepBlue">#174a9b</color>
+    <color name = "white">#FFFFFF</color>
+</resources>
