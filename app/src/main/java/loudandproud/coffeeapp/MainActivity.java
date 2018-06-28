@@ -77,24 +77,14 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onTextChanged(CharSequence updatedText, int i, int i1, int i2)
             {
-
+                //Multi threading for running database stuff.
                 new Thread(new Runnable()
                 {
                     @Override
                     public void run()
                     {
-//                        suggestionText1.setText(drinkDao.getAll().toString());
                     }
                 }).start();
-
-//                drinkTyped = updatedText.toString().toLowerCase();
-//                drinkClass.checkDrinkSuggestions(drinkTyped);
-//                suggestionText1.setText("Search for "+drinkClass.getSugDrink1());
-//                setDrinkTyped(drinkTyped);
-//                if(updatedText.length()== 0)
-//                {
-//                    suggestionText1.setText("");
-//                }
 
             }
 
