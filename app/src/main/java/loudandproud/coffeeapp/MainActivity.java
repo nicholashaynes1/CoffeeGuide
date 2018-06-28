@@ -11,11 +11,6 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import loudandproud.coffeeapp.Local.DrinkDao;
-import loudandproud.coffeeapp.Local.DrinkDatabase;
-import loudandproud.coffeeapp.Model.Drinks;
-import loudandproud.coffeeapp.Model.PopulateDrinksClass;
-
 
 public class MainActivity extends AppCompatActivity
 {
@@ -26,12 +21,6 @@ public class MainActivity extends AppCompatActivity
     private String drinkTyped="";
     private ConstraintLayout background;
     private DrinkClass drinkClass;
-
-    //The drink database
-    private DrinkDatabase db;
-    private PopulateDrinksClass populateDrinksClass;
-    private Drinks drink;
-    private DrinkDao drinkDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -55,11 +44,7 @@ public class MainActivity extends AppCompatActivity
 
         //The drink class object
         drinkClass = new DrinkClass();
-
-        //Builds the database used to hold drink and drink descriptions
-        db = Room.databaseBuilder(getApplicationContext(), DrinkDatabase.class, "DrinkDatabase").build();
-        drink = new Drinks();
-
+        
         setupTextWatcher();
     }
 
@@ -78,23 +63,14 @@ public class MainActivity extends AppCompatActivity
             public void onTextChanged(CharSequence updatedText, int i, int i1, int i2)
             {
 
-                new Thread(new Runnable()
+                drinkTyped = updatedText.toString().toLowerCase();
+                drinkClass.checkDrinkSuggestions(drinkTyped);
+                suggestionText1.setText("Search for "+drinkClass.getSugDrink1());
+                setDrinkTyped(drinkTyped);
+                if(updatedText.length()== 0)
                 {
-                    @Override
-                    public void run()
-                    {
-//                        suggestionText1.setText(drinkDao.getAll().toString());
-                    }
-                }).start();
-
-//                drinkTyped = updatedText.toString().toLowerCase();
-//                drinkClass.checkDrinkSuggestions(drinkTyped);
-//                suggestionText1.setText("Search for "+drinkClass.getSugDrink1());
-//                setDrinkTyped(drinkTyped);
-//                if(updatedText.length()== 0)
-//                {
-//                    suggestionText1.setText("");
-//                }
+                    suggestionText1.setText("");
+                }
 
             }
 
