@@ -10,8 +10,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import loudandproud.coffeeapp.Model.DrinkClass;
-import loudandproud.coffeeapp.R;
+import loudandproud.coffeeapp.Model.SearchDrinksClass;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -21,7 +20,7 @@ public class MainActivity extends AppCompatActivity
     //The string used to hold the drink typed in the search bar.
     private String drinkTyped="";
     private ConstraintLayout background;
-    private DrinkClass drinkClass;
+    private SearchDrinksClass searchDrinksClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity
         background = findViewById(R.id.Bg);
 
         //The drink class object
-        drinkClass = new DrinkClass();
+        searchDrinksClass = new SearchDrinksClass();
 
         setupTextWatcher();
     }
@@ -64,9 +63,12 @@ public class MainActivity extends AppCompatActivity
             public void onTextChanged(CharSequence updatedText, int i, int i1, int i2)
             {
 
+                searchDrinksClass.checkDrinkSuggestions("");
+                suggestionText1.setText(searchDrinksClass.getSugDrink1());
+
 //                drinkTyped = updatedText.toString().toLowerCase();
-//                drinkClass.checkDrinkSuggestions(drinkTyped);
-//                suggestionText1.setText("Search for "+drinkClass.getSugDrink1());
+//                searchDrinksClass.checkDrinkSuggestions(drinkTyped);
+//                suggestionText1.setText("Search for "+searchDrinksClass.getSugDrink1());
 //                setDrinkTyped(drinkTyped);
 //                if(updatedText.length()== 0)
 //                {
