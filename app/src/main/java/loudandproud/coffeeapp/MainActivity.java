@@ -10,7 +10,6 @@ import android.text.TextWatcher;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import loudandproud.coffeeapp.Local.DrinkDao;
 import loudandproud.coffeeapp.Local.DrinkDatabase;
 import loudandproud.coffeeapp.Model.Drinks;

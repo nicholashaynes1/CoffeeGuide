@@ -4,7 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = "Drinks")
+@Entity
 public class Drinks
 {
 
@@ -13,9 +13,6 @@ public class Drinks
 
     @ColumnInfo(name = "drink_name")
     private String drinkName;
-
-    @ColumnInfo(name = "drink_description")
-    private String description;
 
     public int getId()
     {
@@ -35,16 +32,6 @@ public class Drinks
     public void setDrinkName(String drinkName)
     {
         this.drinkName = drinkName;
-    }
-
-    public String getDescription()
-    {
-        return description;
-    }
-
-    public void setDescription(String description)
-    {
-        this.description = description;
     }
 
 }
