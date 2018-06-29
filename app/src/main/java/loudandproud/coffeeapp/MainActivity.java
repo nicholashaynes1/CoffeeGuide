@@ -1,6 +1,5 @@
 package loudandproud.coffeeapp;
 
-import android.arch.persistence.room.Room;
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -11,11 +10,8 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import loudandproud.coffeeapp.Local.DrinkDao;
-import loudandproud.coffeeapp.Local.DrinkDatabase;
-import loudandproud.coffeeapp.Model.Drinks;
-import loudandproud.coffeeapp.Model.PopulateDrinksClass;
-
+import loudandproud.coffeeapp.Model.DrinkClass;
+import loudandproud.coffeeapp.R;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -26,12 +22,6 @@ public class MainActivity extends AppCompatActivity
     private String drinkTyped="";
     private ConstraintLayout background;
     private DrinkClass drinkClass;
-
-    //The drink database
-    private DrinkDatabase db;
-    private PopulateDrinksClass populateDrinksClass;
-    private Drinks drink;
-    private DrinkDao drinkDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -56,10 +46,6 @@ public class MainActivity extends AppCompatActivity
         //The drink class object
         drinkClass = new DrinkClass();
 
-        //Builds the database used to hold drink and drink descriptions
-        db = Room.databaseBuilder(getApplicationContext(), DrinkDatabase.class, "DrinkDatabase").build();
-        drink = new Drinks();
-
         setupTextWatcher();
     }
 
@@ -77,15 +63,6 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onTextChanged(CharSequence updatedText, int i, int i1, int i2)
             {
-
-                new Thread(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-//                        suggestionText1.setText(drinkDao.getAll().toString());
-                    }
-                }).start();
 
 //                drinkTyped = updatedText.toString().toLowerCase();
 //                drinkClass.checkDrinkSuggestions(drinkTyped);

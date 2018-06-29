@@ -1,6 +1,6 @@
-package loudandproud.coffeeapp;
+package loudandproud.coffeeapp.Model;
 
-import java.util.ArrayList;
+import loudandproud.coffeeapp.MainActivity;
 
 
 public class DrinkClass
