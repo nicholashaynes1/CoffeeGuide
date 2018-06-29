@@ -9,16 +9,16 @@ import java.util.List;
 @Dao
 public interface DrinkDao
 {
-    @Query("SELECT * FROM drinks")
+    @Query("SELECT * FROM DrinksTable")
     List<Drinks> getAll();
 
-    @Query("SELECT * FROM drinks WHERE drink_name LIKE :drinkName LIMIT 1")
+    @Query("SELECT * FROM DrinksTable WHERE drink_name LIKE :drinkName LIMIT 1")
     Drinks findByName(String drinkName);
 
     @Insert
-    void insertDrink(Drinks... drinks);
+    void insertDrink(Drinks drinks);
 
-    @Query("DELETE from drinks")
+    @Query("DELETE FROM DrinksTable")
     void deleteAll();
 
 }

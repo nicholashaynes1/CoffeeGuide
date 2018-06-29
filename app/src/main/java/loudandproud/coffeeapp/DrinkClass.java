@@ -35,7 +35,7 @@ public class DrinkClass extends Application
             //Sets the first time ran to true.
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean("firstTime", true);
-            editor.commit();
+            editor.apply();
         }
 
     }
@@ -48,6 +48,6 @@ public class DrinkClass extends Application
     private void setupDatabase()
     {
         drinks.setDrinkName("americano");
-        drinkDao.insertDrink(drinks);
+        drinkDatabase.drinkDao().insertDrink(drinks);
     }
 }

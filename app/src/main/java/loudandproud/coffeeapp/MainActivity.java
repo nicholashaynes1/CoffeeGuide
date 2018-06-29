@@ -10,6 +10,10 @@ import android.text.TextWatcher;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import loudandproud.coffeeapp.Local.DrinkDao;
 import loudandproud.coffeeapp.Local.DrinkDatabase;
 import loudandproud.coffeeapp.Model.Drinks;
@@ -21,15 +25,15 @@ public class MainActivity extends AppCompatActivity
     private EditText searchBar;
     private TextView suggestionText1;
 
-    //The string used to hold the drink typed in the search bar.
+    //The string used to hold the drinks typed in the search bar.
     private String drinkTyped="";
     private ConstraintLayout background;
     private DrinkClass drinkClass;
 
-    //The drink database
+    //The drinks database
     private DrinkDatabase db;
     private PopulateDrinksClass populateDrinksClass;
-    private Drinks drink;
+    private Drinks drinks;
     private DrinkDao drinkDao;
 
     @Override
@@ -52,12 +56,12 @@ public class MainActivity extends AppCompatActivity
         //The background layout
         background = findViewById(R.id.Bg);
 
-        //The drink class object
+        //The drinks class object
         drinkClass = new DrinkClass();
 
-        //Builds the database used to hold drink and drink descriptions
+        //Builds the database used to hold drinks and drinks descriptions
         db = Room.databaseBuilder(getApplicationContext(), DrinkDatabase.class, "DrinkDatabase").build();
-        drink = new Drinks();
+        drinks = new Drinks();
 
         setupTextWatcher();
     }
@@ -72,19 +76,11 @@ public class MainActivity extends AppCompatActivity
 
             }
 
-            //The method to update the drink typed.
+            //The method to update the drinks typed.
             @Override
             public void onTextChanged(CharSequence updatedText, int i, int i1, int i2)
             {
-                //Multi threading for running database stuff.
-                new Thread(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                    }
-                }).start();
-
+                getAllDrinks();
             }
 
             @Override
@@ -93,6 +89,20 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+    }
+
+    public void getAllDrinks()
+    {
+        //Multi threading for running database stuff.
+        new Thread(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+
+            }
+        }).start();
+
     }
 
     public String getDrinkTyped()
