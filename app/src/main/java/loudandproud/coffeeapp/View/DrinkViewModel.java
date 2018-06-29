@@ -17,5 +17,6 @@ public class DrinkViewModel extends AndroidViewModel
     public DrinkViewModel(Application application)
     {
         super(application);
+//        https://codelabs.developers.google.com/codelabs/android-room-with-a-view/#8 number 4
     }
 }
