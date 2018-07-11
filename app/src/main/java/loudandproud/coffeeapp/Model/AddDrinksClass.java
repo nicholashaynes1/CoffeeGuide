@@ -26,6 +26,9 @@ public class AddDrinksClass
         drink = new Drink("Americano"," ","Water & espresso");
         drink.setDrinkDesc("A hot or iced drink that consists of any amount of espresso shots and hot water");
         drinkList.add(drink);
+        drink = new Drink("Mocha"," ","Chocolate, milk, espresso");
+        drink.setDrinkDesc("chocolate milk espresso");
+        drinkList.add(drink);
 
     }
 

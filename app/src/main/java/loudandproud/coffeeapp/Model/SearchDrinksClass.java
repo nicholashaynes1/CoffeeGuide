@@ -33,26 +33,23 @@ public class SearchDrinksClass
     public void checkDrinkSuggestions(String drinkTyped)
     {
 
-        setSugDrink1(drinkList.get(0).getDrinkName());
+        //Loops through the array of drinks
+        for(Drink drink:drinkList)
+        {
+            //Loops through the length of the drink typed
+            for(int i = 0;i <drinkTyped.length(); i++)
+            {
+                //Checks to make sure the only drinks being evaluated are the possible suggestion
+                if(drink.getDrinkName().contains(drinkTyped))
+                {
+                    if(drinkTyped.charAt(i) == drink.getDrinkName().charAt(i))
+                    {
+                        setSugDrink1(drink.getDrinkName());
+                    }
+                }
+            }
 
-
-//        //Loops through the array of drinks
-//        for(String drink:drinksArray)
-//        {
-//            //Loops through the length of the drink typed
-//            for(int i = 0;i <drinkTyped.length(); i++)
-//            {
-//                //Checks to make sure the only drinks being evaluated are the possible suggestion
-//                if(drink.contains(drinkTyped))
-//                {
-//                    if(drinkTyped.charAt(i) == drink.charAt(i))
-//                    {
-//                        setSugDrink1(drink);
-//                    }
-//                }
-//            }
-//
-//        }
+        }
 
     }
 

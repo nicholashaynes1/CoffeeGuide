@@ -64,16 +64,16 @@ public class MainActivity extends AppCompatActivity
             {
 
                 searchDrinksClass.checkDrinkSuggestions("");
-                suggestionText1.setText(searchDrinksClass.getSugDrink1());
+//                suggestionText1.setText(searchDrinksClass.getSugDrink1());
 
-//                drinkTyped = updatedText.toString().toLowerCase();
-//                searchDrinksClass.checkDrinkSuggestions(drinkTyped);
-//                suggestionText1.setText("Search for "+searchDrinksClass.getSugDrink1());
-//                setDrinkTyped(drinkTyped);
-//                if(updatedText.length()== 0)
-//                {
-//                    suggestionText1.setText("");
-//                }
+                drinkTyped = updatedText.toString().toLowerCase();
+                searchDrinksClass.checkDrinkSuggestions(drinkTyped);
+                suggestionText1.setText("Search for "+searchDrinksClass.getSugDrink1());
+                setDrinkTyped(drinkTyped);
+                if(updatedText.length()== 0)
+                {
+                    suggestionText1.setText("");
+                }
 
             }
 
